@@ -1,6 +1,4 @@
-# Introduction aux bases du langage de programmation Python
-
-**Day One**
+# Introduction aux bases du langage de programmation Python - **Day One**
 
 ## Exercice 00 : Premier script Python
 
@@ -55,3 +53,78 @@ Les plus couramment utilisées sont **les listes, les tuples, les ensembles (set
 ### Remarque
 
 - Une **liste est mutable**, c’est-à-dire que l’on peut y apporter n’importe quelle modification après sa création.
+
+---
+---
+
+## Récapitulatif des méthodes courantes en Python (Débutant)
+
+### Listes (`list`)
+
+Les listes sont **mutables** et très utilisées.
+
+| Méthode | Description |
+|-------|------------|
+| `append(x)` | Ajoute un élément à la fin de la liste |
+| `remove(x)` | Supprime la première occurrence de `x` |
+| `pop()` | Supprime et retourne le dernier élément |
+| `insert(i, x)` | Insère `x` à l’index `i` |
+| `clear()` | Vide la liste |
+| `len(l)` | Retourne la taille de la liste |
+| `sort()` | Trie la liste |
+| `reverse()` | Inverse l’ordre des éléments |
+
+---
+
+### Tuples (`tuple`)
+
+Les tuples sont **immuables** (pas de modification possible).
+
+| Méthode | Description |
+|-------|------------|
+| `count(x)` | Compte le nombre d’occurrences de `x` |
+| `index(x)` | Retourne l’index de `x` |
+| `len(t)` | Retourne la taille du tuple |
+
+---
+
+### Ensembles (`set`)
+
+Les ensembles contiennent des **éléments uniques**.
+
+| Méthode | Description |
+|-------|------------|
+| `add(x)` | Ajoute un élément |
+| `remove(x)` | Supprime un élément (erreur si absent) |
+| `discard(x)` | Supprime un élément (sans erreur) |
+| `clear()` | Vide l’ensemble |
+| `union(s)` | Union de deux ensembles |
+| `intersection(s)` | Intersection de deux ensembles |
+| `len(s)` | Taille de l’ensemble |
+
+---
+
+### Dictionnaires (`dict`)
+
+Les dictionnaires stockent des **paires clé-valeur**.
+
+| Méthode | Description |
+|-------|------------|
+| `get(key)` | Retourne la valeur associée à la clé |
+| `keys()` | Retourne toutes les clés |
+| `values()` | Retourne toutes les valeurs |
+| `items()` | Retourne les paires clé-valeur |
+| `pop(key)` | Supprime une clé et sa valeur |
+| `update(d)` | Met à jour le dictionnaire |
+| `len(d)` | Taille du dictionnaire |
+
+---
+
+### Fonctions utiles pour toutes les structures
+
+| Fonction | Description |
+|--------|------------|
+| `len()` | Nombre d’éléments |
+| `type()` | Type de la variable |
+| `print()` | Affichage |
+
