@@ -1,14 +1,14 @@
-ft_list = ["Hello", "tata!"]
-ft_tuple = ("Hello", "toto!")
-ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
-
-print("List :", type(ft_list))
-print("Tuple :", type(ft_tuple))
-print("Set :", type(ft_set))
-print("Dict :", type(ft_dict))
-bryan = "Brian is in the kitchen :"
-toto = "Toto is in the kitchen :"
-print(bryan, type(bryan))
-print(toto, type(toto))
-print('42')
+def all_thing_is_obj(object: any) -> int:
+	if type(object) == list:
+		print("List :", type(object))
+	elif type(object) == tuple:
+		print("Tuple :", type(object))
+	elif type(object) == set:
+		print("Set :", type(object))
+	elif type(object) == dict:
+		print("Dict :", type(object))
+	elif type(object) == str:
+		print(f"{object} is in the kitchen :", type(object))
+	else:
+		print("Type not found")
+	return 42

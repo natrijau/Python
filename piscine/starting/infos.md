@@ -1,6 +1,6 @@
 # Introduction aux bases du langage de programmation Python - **Day One**
 
-## Exercice 00 : Premier script Python
+# Exercice 00 : Premier script Python
 
 Cet exercice a pour objectif de comprendre les **différences et applications** des principales structures de données en Python :
 - les listes
@@ -128,3 +128,5 @@ Les dictionnaires stockent des **paires clé-valeur**.
 | `type()` | Type de la variable |
 | `print()` | Affichage |
 
+
+# Exercice 01 : Premier script Python

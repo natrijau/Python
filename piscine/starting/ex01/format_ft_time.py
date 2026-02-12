@@ -1,8 +1,5 @@
 from datetime import datetime, timezone
 
-
-
-
 post_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
 now = datetime.now(timezone.utc)
 
