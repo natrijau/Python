@@ -30,11 +30,8 @@ def test_arg(obj: list[str]):
     if len(obj) == 2:
         return obj[1]
     if len(obj) == 1:
-        print("Please enter a string :")
-        tmp = input()
-        while len(tmp) == 0:
-            print("Please enter a string :")
-            tmp = input()
+        print("What is the text to count?")
+        tmp = sys.stdin.readline()
         return tmp
     assert len(obj) == 2, "AssertionError: more than one argument is provided"
 
@@ -43,6 +40,10 @@ def main():
     try:
         string = test_arg(sys.argv)
         count_string_infos(string)
+    except KeyboardInterrupt:
+        sys.exit()
+    except EOFError:
+        sys.exit()
     except AssertionError as error:
         print(error)
 
