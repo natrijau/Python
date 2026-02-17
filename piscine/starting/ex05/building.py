@@ -12,13 +12,14 @@ def count_string_infos(obj: str):
             - nb of characters that are considered whitespace
             - nb of characters that are considered digits
     """
-    nb_char = sum(1 for c in obj if c in string.printable)
-    print(f"The text contains {nb_char} characters:")
-    print(sum(1 for c in obj if c.isupper()), "upper letters")
-    print(sum(1 for c in obj if c.islower()), "lower letters")
-    print(sum(1 for c in obj if c in string.punctuation), "punctuation marks")
-    print(sum(1 for c in obj if c in string.whitespace), "spaces")
-    print(sum(1 for c in obj if c in string.digits), "digits")
+    punctuation_chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+    print(f"The text contains {len(obj)} characters:")
+    print(sum(c.isupper() for c in obj), "upper letters")
+    print(sum(c.islower() for c in obj), "lower letters")
+    print(sum(c in punctuation_chars for c in obj), "punctuation marks")
+    print(sum(c.isspace() for c in obj), "spaces")
+    print(sum(c.isdigit() for c in obj), "digits")
 
 
 def test_arg(obj: list[str]):
