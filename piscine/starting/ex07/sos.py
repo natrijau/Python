@@ -10,10 +10,7 @@ def special_char(obj: str) -> bool:
 	:rtype: bool
 	"""
 
-	if all(char.isalpha() is False and char.isspace() is False for char in obj):
-		return False
-
-	return True
+	return all(char.isalnum() or char.isspace() for char in obj)
 
 def validate_args(av: list[str])  -> bool:
 	"""
@@ -27,52 +24,55 @@ def validate_args(av: list[str])  -> bool:
 	assert len(av) == 2 and special_char(av[1]), "AssertionError: the arguments are bad"
 	return True
 
-morse = {' ': ' ',
-        '0': '-----',
-        '1': '.----',
-        '2': '..---',
-        '3': '...--',
-        '4': '....-',
-        '5': '.....',
-        '6': '-....',
-        '7': '--...',
-        '8': '---..',
-        '9': '----.',
-        ',': '--..--',
-        '.': '.-.-.-',
-        '?': '..--..',
-        'A': '.-',
-        'B': '-...',
-        'C': '-.-.',
-        'D': '-..',
-        'E': '.',
-        'F': '..-.',
-        'G': '--.',
-        'H': '....',
-        'I': '..',
-        'J': '.---',
-        'K': '-.-',
-        'L': '.-..',
-        'M': '--',
-        'N': '-.',
-        'O': '---',
-        'P': '.--.',
-        'Q': '--.-',
-        'R': '.-.',
-        'S': '...',
-        'T': '-',
-        'U': '..-',
-        'V': '...-',
-        'W': '.--',
-        'X': '-..-',
-        'Y': '-.--',
-        'Z': '--..'}
+
+def	morse_translate(word: str)  -> str:
+	morse = {' ': '/ ',
+			'0': '-----',
+			'1': '.----',
+			'2': '..---',
+			'3': '...--',
+			'4': '....-',
+			'5': '.....',
+			'6': '-....',
+			'7': '--...',
+			'8': '---..',
+			'9': '----.',
+			'A': '.-',
+			'B': '-...',
+			'C': '-.-.',
+			'D': '-..',
+			'E': '.',
+			'F': '..-.',
+			'G': '--.',
+			'H': '....',
+			'I': '..',
+			'J': '.---',
+			'K': '-.-',
+			'L': '.-..',
+			'M': '--',
+			'N': '-.',
+			'O': '---',
+			'P': '.--.',
+			'Q': '--.-',
+			'R': '.-.',
+			'S': '...',
+			'T': '-',
+			'U': '..-',
+			'V': '...-',
+			'W': '.--',
+			'X': '-..-',
+			'Y': '-.--',
+			'Z': '--..'}
+	
+	translate = " ".join(morse[c.upper()] for c in word)
+	return translate
+
 
 def main():
 	
 	try:
 		if validate_args(argv) is True:
-			print()
+			print(morse_translate(argv[1]))
 	except KeyboardInterrupt:
 		exit()
 	except EOFError:
