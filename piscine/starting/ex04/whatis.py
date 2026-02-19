@@ -1,6 +1,14 @@
 import sys
 
 def is_integer(obj: any) -> bool:
+	"""
+	Docstring pour is_integer
+	
+	:param obj: Description
+	:type obj: any
+	:return: Description
+	:rtype: bool
+	"""
 	if not obj:
 		return False
 	if obj[0] in "+-":
@@ -8,6 +16,12 @@ def is_integer(obj: any) -> bool:
 	return obj.isdigit()
 
 def odd_or_even(argv: any):
+	"""
+	Docstring pour odd_or_even
+	
+	:param argv: Description
+	:type argv: any
+	"""
 	if len(argv) == 1:
 		sys.exit()
 

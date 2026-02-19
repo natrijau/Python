@@ -13,4 +13,8 @@ def	ft_filter(funct, iterable: list):
 	if funct is None:
 		return [x for x in iterable if x]
 
+	new = list(None)
+	for x in iterable:
+		if funct(x):
+			new.append(x)
 	return [x for x in iterable if funct(x)]
