@@ -8,7 +8,7 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 
 # Table des matières
 
-- [Exercice 00 – Structures de données](#exercice-00--structures-de-donnees)  
+- [Exercice 00 – First python script](#exercice-00--first-python-script)  
 - [Exercice 01 – First use of package](#exercice-01--first-use-of-package)  
 - [Exercice 02 – Gestion du temps](#exercice-02--gestion-du-temps)  
 - [Exercice 03 – Null-like values](#exercice-03--null-like-values)  
