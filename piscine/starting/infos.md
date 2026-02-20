@@ -173,16 +173,6 @@ def all_thing_is_obj(object: any) -> int:
 - Elle doit retourner 42.
 - Aucune fonction spécifique n’est imposée (Allowed functions: None).
 
-##  Comportement attendu
-
-```python
-delta = now - post_date
-seconds = delta.total_seconds()
-```
-
-- delta est un objet timedelta représentant l’intervalle de temps entre now et post_date.
-- total_seconds() retourne la durée totale en secondes.
-
 ##  Formatage de date lisible
 
 Types à reconnaître
