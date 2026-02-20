@@ -380,6 +380,8 @@ def NULL_not_found(object: any) -> int:
 - Les tests if not object: détectent implicitement 0, "", False et None.
 - Utiliser is pour comparer à None et False pour éviter les erreurs.
 
+---
+
 # Exercice 04 – Arguments & Assertions
 
 ## Objectif
@@ -436,3 +438,77 @@ except AssertionError as error:
     print(error)
 ```
 Cela permet de fournir un retour lisible à l’utilisateur sans planter le programme brutalement.
+
+---------
+
+***A partir de l'exercice 05 , toutes les fonctions doivent avoir une documentation (___doc___)***
+
+---
+
+# Documentation de `__doc__` en Python
+
+`__doc__` est un attribut spécial disponible sur **tous les modules, classes, fonctions et méthodes** en Python.  
+Il contient la **docstring** associée, c’est-à-dire la chaîne de documentation décrivant l’objet.
+
+---
+
+## 1 - Définition
+
+- Type : `str` ou `None`
+- Valeur : La chaîne de documentation définie par des **guillemets triples** `"""..."""` au début du module, de la classe ou de la fonction.
+- Si aucun docstring n’est présent, `__doc__` vaut `None`.
+
+---
+
+## 2 - Obtenir la documentation
+
+### Pour un module
+```python
+import math
+print(math.__doc__)
+```
+
+## 3 - Bonnes pratiques pour __doc__
+
+1) Toujours mettre une docstring descriptive pour :
+
+- les modules
+- les classes
+- les fonctions/méthodes
+
+2) Commencer par une phrase courte résumant l’objet.
+
+3) Ajouter, si nécessaire :
+- Arguments (Args) et types
+- Valeur de retour (Returns) et type
+- Exceptions possibles (Raises)
+
+4) Utiliser les guillemets triples """ au début de l’objet.
+
+---
+
+Exemple complet
+```python
+"""
+building.py
+
+Programme autonome qui analyse une chaîne de caractères fournie
+en argument et affiche le nombre de majuscules, minuscules, chiffres,
+espaces et ponctuations.
+
+Usage :
+    python building.py "Ma chaîne à analyser"
+
+Arguments :
+    text (str) : chaîne à analyser
+
+Retour :
+    None (affiche les résultats à l'écran)
+
+Exceptions :
+    AssertionError : si aucun argument ou trop d'arguments sont fournis
+"""
+```
+
+- building.__doc__ retournera exactement ce texte.
+- help(building) affichera la docstring de manière lisible.

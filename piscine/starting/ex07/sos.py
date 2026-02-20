@@ -26,6 +26,8 @@ def validate_args(av: list[str])  -> bool:
 
 
 def	morse_translate(word: str)  -> str:
+	"""
+	"""
 	morse = {' ': '/ ',
 			'0': '-----',
 			'1': '.----',
