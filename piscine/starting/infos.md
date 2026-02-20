@@ -23,7 +23,7 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 
 # Exercice 00 - Premier script Python
 
-## 🎯 Objectif
+## Objectif
 
 Comprendre les différences entre :
 
@@ -32,9 +32,6 @@ Comprendre les différences entre :
 - `set`
 - `dict`
 
----
-
-## Définition des structures de données Python
 
 En Python, les structures de données permettent de **stocker, organiser et manipuler** des informations de différentes manières.  
 Les plus couramment utilisées sont **les listes, les tuples, les ensembles (set) et les dictionnaires**.
@@ -72,13 +69,6 @@ Les plus couramment utilisées sont **les listes, les tuples, les ensembles (set
 | Ordonnée             | ✅ Oui            | ✅ Oui            | ❌ Non             | ✅ Oui (Python ≥ 3.7) |
 | Structure vide       | `l = []`          | `t = ()`          | `s = set()`        | `d = {}`              |
 
----
-
-### Remarque
-
-- Une **liste est mutable**, c’est-à-dire que l’on peut y apporter n’importe quelle modification après sa création.
-
----
 ---
 
 ## Récapitulatif des méthodes courantes en Python (Débutant)
@@ -153,4 +143,69 @@ Les dictionnaires stockent des **paires clé-valeur**.
 | `print()` | Affichage |
 
 
-# Exercice 01 : Premier script Python
+---
+
+# Exercice 01 – Gestion du temps
+
+## Objectif
+
+Manipuler les dates et comprendre le **timestamp Unix (Epoch)**, qui représente le nombre de secondes écoulées depuis le **1er janvier 1970, 00:00:00 UTC**.
+
+Cet exercice permet de se familiariser avec :
+
+- Le module `datetime` pour créer et manipuler des dates et heures
+- Les fuseaux horaires (`timezone`)
+- La différence entre deux dates (`timedelta`)
+- Le formatage des dates et l’affichage en notation scientifique
+
+---
+
+## Création de dates
+
+```python
+from datetime import datetime, timezone
+
+# Date de référence Unix Epoch
+post_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+# Date actuelle UTC
+now = datetime.now(timezone.utc)
+```
+
+- datetime(1970, 1, 1, tzinfo=timezone.utc) crée un objet datetime pour l’Epoch avec le fuseau horaire UTC.
+- datetime.now(timezone.utc) récupère la date et l’heure actuelle en UTC.
+
+##  Calcul de la différence entre deux dates
+
+```python
+delta = now - post_date
+seconds = delta.total_seconds()
+```
+
+- delta est un objet timedelta représentant l’intervalle de temps entre now et post_date.
+- total_seconds() retourne la durée totale en secondes.
+
+##  Formatage de date lisible
+
+```python
+date_str = now.strftime("%b %d %Y")
+print(date_str)  # Exemple: Feb 20 2026
+```
+
+- %b : nom abrégé du mois (Jan, Feb…)
+- %d : jour du mois (01 à 31)
+- %Y : année sur 4 chiffres
+
+##  Affichage du timestamp en notation scientifique
+
+```python
+print(f"Seconds since January 1, 1970: {seconds:,.4f} or {seconds:.2e} in scientific notation")
+```
+
+- :,.4f : format avec virgule comme séparateur de milliers et 4 décimales
+- :.2e : format scientifique (exponentielle) avec 2 décimales
+
+***Exemple de sortie :***
+```python
+Seconds since January 1, 1970: 1,793,407,200.1234 or 1.79e+09 in scientific notation
+```
