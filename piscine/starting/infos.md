@@ -21,7 +21,7 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 ---
 
 
-# Exercice 00 - Structures de données
+# Exercice 00 - First python script
 
 ## Objectif
 
