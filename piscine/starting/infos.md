@@ -585,51 +585,157 @@ if __name__ == "__main__":
 
 --- 
 
-# Exercice 06 – Filterstring & ft_filter
+# Exercice 06 – Filter & Lambda
 
 ## Objectif
 
-Cet exercice est divisé en **deux parties** :
+Apprendre à recréer une fonction intégrée de Python (filter) et à manipuler des chaînes avec des expressions lambda et des compréhensions de liste.
 
-1. **Recode de la fonction `filter`**  
-   - Créer votre propre fonction `ft_filter` qui se comporte comme la fonction Python intégrée `filter`.  
-   - Elle doit retourner le même résultat que `print(filter.__doc__)`.  
-   - **Restriction** : l’utilisation de `filter` est interdite.  
-   - Utiliser au moins une **list comprehension** pour la recoder.
+Cet exercice est divisé en deux parties :
 
-2. **Programme principal `filterstring.py`**  
-   - Accepter **deux arguments** : 
-     1. Une chaîne de caractères `S`
-     2. Un entier `N`  
-   - Afficher une **liste de mots** de `S` dont la longueur est **supérieure à N**.  
-   - Les mots sont séparés par des espaces et la chaîne ne contient pas de caractères spéciaux.  
-   - La solution doit contenir **au moins une list comprehension et un lambda**.  
-   - Si le nombre d’arguments est incorrect ou si un type est invalide, **lancer une AssertionError**.
+1 - Recréer le comportement de la fonction intégrée filter avec list comprehension.
+2 - Écrire un programme qui filtre les mots d’une chaîne selon leur longueur, en utilisant lambda et list comprehension.
+
+Cet exercice explore des concepts avancés de Python fonctionnel et itératif, en combinant :
+ - Les list comprehensions pour générer des listes de manière concise et expressive.
+ - La recréation de la fonction intégrée filter.
+ - L’utilisation des fonctions lambda pour définir des fonctions anonymes.
+ - La validation et la manipulation des arguments passés au script.
+
+L’objectif est de comprendre comment manipuler des séquences de données et appliquer des filtres de manière pythonique.
 
 ---
 
-## Exemple de sortie attendue
+## Notions clés
 
-```bash
-$> python filterstring.py 'Hello the World' 4
-['Hello', 'World']
-$>
-$> python filterstring.py 'Hello the World' 99
-[]
+### 1. List Comprehension
+
+Une list comprehension est une syntaxe compacte pour créer des listes en Python, souvent utilisée pour filtrer ou transformer des éléments d’une séquence.
+
+#### Syntaxe :
+
+```python
+[expression for item in iterable if condition]
+```
+- expression : ce que vous voulez mettre dans la nouvelle liste.
+- item : chaque élément de l’itérable.
+- condition (optionnelle) : filtre pour inclure seulement certains éléments.
+
+#### Exemples :
+
+```python
+# Filtrer les nombres pairs dans une liste
+numbers = [1, 2, 3, 4, 5]
+evens = [n for n in numbers if n % 2 == 0]  # [2, 4]
+
+# Transformer une liste de mots en majuscules
+words = ["hello", "world"]
+upper_words = [w.upper() for w in words]  # ['HELLO', 'WORLD']
+```
+Les list comprehensions sont utilisées dans ft_filter pour recréer le comportement de filter.
+
+### 2. Fonction filter
+
+La fonction intégrée filter(function, iterable) retourne un itérateur contenant uniquement les éléments pour lesquels la fonction renvoie True.
+
+#### Syntaxe :
+
+```python
+filter(fonction, iterable)
+```
+- fonction : Une fonction qui prend un élément de l'itérable en entrée et retourne True ou False. Si la fonction retourne True, l'élément est inclus dans le résultat.
+- itérable : L'itérable à filtrer (liste, tuple, etc.).
+
+#### Exemples :
+
+```python
+# Définir une fonction de test
+def is_pair(n):
+    return n % 2 == 0
+
+# Liste d'entrée
+nombres = [1, 2, 3, 4, 5, 6]
+
+# Appliquer filter()
+resultat = filter(is_pair, nombres)
+
+# Convertir le résultat en liste pour l'afficher
+print(list(resultat))  # Sortie : [2, 4, 6]
+
+```
+Si function est None, filter retourne tous les éléments évalués comme vrais.
+ft_filter recrée ce comportement sans utiliser la fonction filter, avec une list comprehension.
+
+### 3. Lambda
+
+Une lambda est une fonction anonyme définie en une seule ligne, pratique pour le filtrage ou le tri rapide.
+
+#### Syntaxe :
+
+```python
+lambda arguments: expression
+```
+- arguments : Les paramètres d'entrée de la fonction (comme pour une fonction classique).
+- expression : Une expression qui est évaluée et retournée. Pas besoin d'utiliser return.
+
+#### Exemples :
+
+1. Lambda pour une condition simple
+```python
+# Lambda qui vérifie si un nombre est pair
+est_pair = lambda n: n % 2 == 0
+
+# Liste d'entrée
+nombres = [1, 2, 3, 4, 5, 6]
+
+# Utilisation de la lambda avec filter()
+resultat = list(filter(est_pair, nombres))
+print(resultat)  # Sortie : [2, 4, 6]
 ```
 
----
+2. Lambda pour trier une liste
+```python
+# Liste de tuples (nom, âge)
+personnes = [("Alice", 30), ("Bob", 25), ("Charlie", 35)]
+
+# Trier par âge avec une lambda
+personnes_triees = sorted(personnes, key=lambda x: x[1])
+print(personnes_triees)
+# Sortie : [('Bob', 25), ('Alice', 30), ('Charlie', 35)]
+
+```
+
+3. Lambda pour une opération mathématique
+```python
+# Lambda qui calcule le carré d'un nombre
+carre = lambda x: x ** 2
+
+# Appliquer la lambda à une liste
+nombres = [1, 2, 3, 4]
+resultat = list(map(carre, nombres))
+print(resultat)  # Sortie : [1, 4, 9, 16]
+
+```
+
+4. Lambda avec plusieurs arguments
+```python
+# Lambda qui additionne deux nombres
+addition = lambda a, b: a + b
+print(addition(3, 5))  # Sortie : 8
+```
+- Les lambdas sont souvent utilisées avec des fonctions comme filter(), map(), ou sorted() pour des opérations concises.
+- Elles ne sont pas adaptées pour des fonctions complexes (plusieurs lignes, boucles, etc.).
 
 
-## Notes
+--- 
 
-- Utiliser le module `sys` pour récupérer les arguments passés au programme.
-- Tester le programme dans différents cas :
-  - Aucun argument fourni → le programme doit demander une saisie à l’utilisateur.
-  - Deux arguments valides (chaîne et entier) → le programme doit retourner la liste filtrée.
-  - Mauvais type d’argument → le programme doit lever un `AssertionError`.
-  - Nombre d’arguments différent de 2 → le programme doit lever un `AssertionError`.
-- Le code doit **utiliser au moins une list comprehension et une expression lambda**.
+## Résumé des notions abordées
 
----
+| Notion                   | Description |
+|--------------------------|-------------|
+| **List comprehension**   | Permet de créer une liste de manière concise en filtrant ou transformant les éléments d’un iterable. |
+| **Filter**               | Fonction intégrée qui retourne les éléments d’un iterable pour lesquels une condition est vraie. |
+| **Lambda**               | Fonction anonyme définie en une seule ligne, idéale pour les expressions simples et le filtrage. |
+| **Validation des arguments** | Vérification du nombre et du type des arguments passés au programme afin d’éviter les erreurs d’exécution. |
+
 
