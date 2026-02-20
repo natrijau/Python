@@ -485,9 +485,16 @@ print(math.__doc__)
 
 4) Utiliser les guillemets triples """ au début de l’objet.
 
----
+## 4 - Notes
+- Toutes les fonctions doivent avoir une **docstring claire** expliquant :
+  - l’objectif de la fonction,
+  - les paramètres et leurs types,
+  - le type et la signification du retour,
+  - les exceptions levées (le cas échéant).
+- Aucune exécution de code en **scope global** : tout doit passer par la fonction `main()`.
+- Les exceptions doivent être **capturées et affichées proprement**, sans planter le programme.
 
-Exemple complet
+## 5 Exemple complet
 ```python
 """
 building.py
@@ -536,18 +543,16 @@ Si aucun argument n’est fourni, le programme doit **demander à l’utilisateu
 1. **Programme autonome**  
    - Doit contenir une fonction `main()` et ne pas être un simple script global.
 2. **Arguments**  
-   - Accepte **un seul argument de type chaîne**.
-   - Si l’argument est absent ou invalide, une exception est levée ou l’utilisateur est invité à entrer une chaîne.
-3. **Analyse du texte**  
-   - Compte :
-     - Les **lettres majuscules**
-     - Les **lettres minuscules**
-     - Les **chiffres**
-     - Les **espaces**
-     - Les **caractères de ponctuation**
+	- Accepte **un seul argument de type chaîne**.
+	- Si l’argument est absent ou invalide, une exception est levée ou l’utilisateur est invité à entrer une chaîne.
+3. **Analyse du texte et compter**  
+	- Les **lettres majuscules**
+	- Les **lettres minuscules**
+	- Les **chiffres**
+	- Les **espaces**
+	- Les **caractères de ponctuation**
 4. **Gestion des erreurs**  
-   - `AssertionError` est utilisé pour signaler un nombre d’arguments incorrect.
-   - Le programme capture et affiche proprement les exceptions.
+	- `AssertionError` est utilisé pour signaler un nombre d’arguments incorrect.
 
 ---
 
@@ -611,52 +616,10 @@ $> python filterstring.py 'Hello the World' 4
 $>
 $> python filterstring.py 'Hello the World' 99
 []
-$>
-$> python filterstring.py 3 'Hello the World'
-AssertionError: the arguments are bad
-$>
-$> python filterstring.py
-AssertionError: the arguments are bad
 ```
-
-## Fichiers à rendre
-
-- `ft_filter.py`  
-- `filterstring.py`
 
 ---
 
-## Bonnes pratiques
-
-- Toujours utiliser une **fonction `main()`** pour centraliser le code exécuté :
-
-```python
-def main():
-    # tests et gestion des erreurs
-
-if __name__ == "__main__":
-    main()
-```
-
-- Capturer les exceptions pour un retour utilisateur lisible :
-```python
-try:
-    # code
-except AssertionError as error:
-    print(error)
-```
-
-- Ajouter une docstring (__doc__) pour chaque fonction, décrivant :
-
-- - Objectif de la fonction
-
-- - Paramètres et types
-
-- - Retour attendu et type
-
-- - Exceptions levées le cas échéant
-
-- Ne jamais exécuter de code directement dans le scope global (hors main).
 
 ## Notes
 
@@ -667,10 +630,6 @@ except AssertionError as error:
   - Mauvais type d’argument → le programme doit lever un `AssertionError`.
   - Nombre d’arguments différent de 2 → le programme doit lever un `AssertionError`.
 - Le code doit **utiliser au moins une list comprehension et une expression lambda**.
-- Toutes les fonctions doivent avoir une **docstring claire** expliquant :
-  - l’objectif de la fonction,
-  - les paramètres et leurs types,
-  - le type et la signification du retour,
-  - les exceptions levées (le cas échéant).
-- Aucune exécution de code en **scope global** : tout doit passer par la fonction `main()`.
-- Les exceptions doivent être **capturées et affichées proprement**, sans planter le programme.
+
+---
+
