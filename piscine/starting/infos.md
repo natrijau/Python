@@ -9,8 +9,8 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 # Table des matières
 
 - [Exercice 00 – Structures de données](#exercice-00--structures-de-donnees)  
-- [Exercice 01 – First function Python](#exercice-01--gestion-du-temps)  
-- [Exercice 02 – Gestion du temps](#exercice-02--typage-dynamique)  
+- [Exercice 01 – First use of package](#exercice-01--first-use-of-package)  
+- [Exercice 02 – Gestion du temps](#exercice-02--gestion-du-temps)  
 - [Exercice 03 – Null-like values](#exercice-03--null-like-values)  
 - [Exercice 04 – Arguments & Assertions](#exercice-04--arguments--assertions)  
 - [Exercice 05 – Analyse de texte](#exercice-05--analyse-de-texte)  
@@ -21,7 +21,7 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 ---
 
 
-# Exercice 00 - Premier script Python
+# Exercice 00 - Structures de données
 
 ## Objectif
 
@@ -145,7 +145,7 @@ Les dictionnaires stockent des **paires clé-valeur**.
 
 ---
 
-# Exercice 01 – First function Python
+# Exercice 01 – First use of package
 
 ## Objectif
 
