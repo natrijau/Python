@@ -512,3 +512,165 @@ Exceptions :
 
 - building.__doc__ retournera exactement ce texte.
 - help(building) affichera la docstring de manière lisible.
+
+---
+
+# Exercice 05 – First standalone program Python
+
+## Objectif
+
+Créer un **programme autonome** en Python qui :
+
+- prend **une seule chaîne de caractères** depuis la ligne de commande,
+- affiche le **nombre de majuscules, minuscules, chiffres, espaces et caractères de ponctuation** dans cette chaîne,
+- ou déclenche une **AssertionError** si :
+  - aucun argument n’est fourni,
+  - plus d’un argument est fourni.
+
+Si aucun argument n’est fourni, le programme doit **demander à l’utilisateur de saisir une chaîne**.
+
+---
+
+## Fonctionnalités
+
+1. **Programme autonome**  
+   - Doit contenir une fonction `main()` et ne pas être un simple script global.
+2. **Arguments**  
+   - Accepte **un seul argument de type chaîne**.
+   - Si l’argument est absent ou invalide, une exception est levée ou l’utilisateur est invité à entrer une chaîne.
+3. **Analyse du texte**  
+   - Compte :
+     - Les **lettres majuscules**
+     - Les **lettres minuscules**
+     - Les **chiffres**
+     - Les **espaces**
+     - Les **caractères de ponctuation**
+4. **Gestion des erreurs**  
+   - `AssertionError` est utilisé pour signaler un nombre d’arguments incorrect.
+   - Le programme capture et affiche proprement les exceptions.
+
+---
+
+## Exemple de sortie attendue
+
+```bash
+$> python building.py "Python 3.0, released in 2008, was a major revision that is not completely backward compatible with earlier versions. Python 2 was discontinued with version 2.7.18 in 2020."
+The text contains 171 characters:
+2 upper letters
+121 lower letters
+7 punctuation marks
+26 spaces
+15 digits
+$>
+```
+
+### Bonnes pratiques
+
+Toujours utiliser une fonction main() pour centraliser le code exécuté :
+
+```python
+def main():
+    # tests et gestion des erreurs
+
+if __name__ == "__main__":
+    main()
+```
+- Ajouter une docstring (__doc__) pour le programme et pour chaque fonction.
+- Ne jamais exécuter de code directement dans le scope global (hors main).
+
+--- 
+
+# Exercice 06 – Filterstring & ft_filter
+
+## Objectif
+
+Cet exercice est divisé en **deux parties** :
+
+1. **Recode de la fonction `filter`**  
+   - Créer votre propre fonction `ft_filter` qui se comporte comme la fonction Python intégrée `filter`.  
+   - Elle doit retourner le même résultat que `print(filter.__doc__)`.  
+   - **Restriction** : l’utilisation de `filter` est interdite.  
+   - Utiliser au moins une **list comprehension** pour la recoder.
+
+2. **Programme principal `filterstring.py`**  
+   - Accepter **deux arguments** : 
+     1. Une chaîne de caractères `S`
+     2. Un entier `N`  
+   - Afficher une **liste de mots** de `S` dont la longueur est **supérieure à N**.  
+   - Les mots sont séparés par des espaces et la chaîne ne contient pas de caractères spéciaux.  
+   - La solution doit contenir **au moins une list comprehension et un lambda**.  
+   - Si le nombre d’arguments est incorrect ou si un type est invalide, **lancer une AssertionError**.
+
+---
+
+## Exemple de sortie attendue
+
+```bash
+$> python filterstring.py 'Hello the World' 4
+['Hello', 'World']
+$>
+$> python filterstring.py 'Hello the World' 99
+[]
+$>
+$> python filterstring.py 3 'Hello the World'
+AssertionError: the arguments are bad
+$>
+$> python filterstring.py
+AssertionError: the arguments are bad
+```
+
+## Fichiers à rendre
+
+- `ft_filter.py`  
+- `filterstring.py`
+
+---
+
+## Bonnes pratiques
+
+- Toujours utiliser une **fonction `main()`** pour centraliser le code exécuté :
+
+```python
+def main():
+    # tests et gestion des erreurs
+
+if __name__ == "__main__":
+    main()
+```
+
+- Capturer les exceptions pour un retour utilisateur lisible :
+```python
+try:
+    # code
+except AssertionError as error:
+    print(error)
+```
+
+- Ajouter une docstring (__doc__) pour chaque fonction, décrivant :
+
+- - Objectif de la fonction
+
+- - Paramètres et types
+
+- - Retour attendu et type
+
+- - Exceptions levées le cas échéant
+
+- Ne jamais exécuter de code directement dans le scope global (hors main).
+
+## Notes
+
+- Utiliser le module `sys` pour récupérer les arguments passés au programme.
+- Tester le programme dans différents cas :
+  - Aucun argument fourni → le programme doit demander une saisie à l’utilisateur.
+  - Deux arguments valides (chaîne et entier) → le programme doit retourner la liste filtrée.
+  - Mauvais type d’argument → le programme doit lever un `AssertionError`.
+  - Nombre d’arguments différent de 2 → le programme doit lever un `AssertionError`.
+- Le code doit **utiliser au moins une list comprehension et une expression lambda**.
+- Toutes les fonctions doivent avoir une **docstring claire** expliquant :
+  - l’objectif de la fonction,
+  - les paramètres et leurs types,
+  - le type et la signification du retour,
+  - les exceptions levées (le cas échéant).
+- Aucune exécution de code en **scope global** : tout doit passer par la fonction `main()`.
+- Les exceptions doivent être **capturées et affichées proprement**, sans planter le programme.
