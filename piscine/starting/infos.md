@@ -8,7 +8,7 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 
 # Table des matières
 
-- [Exercice 00 – Structures de données](#exercice-00--Premier-script-Python)
+- [Exercice 00 – Structures de données](#exercice-00--premier-script-python)
 - [Exercice 01 – Gestion du temps](#exercice-01--gestion-du-temps)
 - [Exercice 02 – Typage dynamique](#exercice-02--typage-dynamique)
 - [Exercice 03 – Null-like values](#exercice-03--null-like-values)
@@ -199,20 +199,21 @@ Type not found
 
 ## type() vs isinstance()
 
+Pour : 
+```python
+class MyList(list):
+    pass
+
+obj = MyList()
+```
 
 ### 1 - type()
 
 La fonction type(obj) retourne le type exact de l’objet.
 ```python
-x = [1, 2, 3]
-print(type(x))
+print(type(obj) == list) # -> <class '__main__.MyList'>
 ```
-
-Sortie:
-```python
-<class 'list'>
-```
-
+Car type(obj) est exactement MyList, pas list
 Cette comparaison fonctionne uniquement si le type est exactement list.
 Elle ne prend pas en compte l’héritage.
 
@@ -229,23 +230,10 @@ if isinstance(x, list): -# --> True
 ```
 Car MyList hérite de list.
 
---- 
 
-### Différence principale : l’héritage
-
-Pour : 
-```python
-class MyList(list):
-    pass
-
-obj = MyList()
-```
 
 - Avec type() :
-```python
-print(type(obj) == list) # -> <class '__main__.MyList'>
-```
-Car type(obj) est exactement MyList, pas list
+
 
 - Avec isinstance() :
 ```python
@@ -253,6 +241,8 @@ x = [1, 2, 3]
 print(isinstance(obj, list)) # True
 ```
 Car MyList hérite de list.
+
+---
 
 ### Tableau récapitulatif
 
@@ -391,3 +381,60 @@ def NULL_not_found(object: any) -> int:
 - Pour détecter NaN, utiliser object != object ou math.isnan().
 - Les tests if not object: détectent implicitement 0, "", False et None.
 - Utiliser is pour comparer à None et False pour éviter les erreurs.
+
+# Exercice 03 – Null-like values
+
+## Objectif
+
+Créer un script Python qui :
+
+- prend un seul argument depuis la ligne de commande,
+- vérifie s’il s’agit d’un entier,
+- affiche si ce nombre est pair ou impair,
+- ou déclenche une AssertionError si :
+	- il n’y a aucun argument,
+	- il y a plus d’un argument,
+	- l’argument n’est pas un entier.
+
+---
+
+## Référence : Python AssertionError Exception
+
+1. Qu’est‑ce qu’un AssertionError ?
+
+Un AssertionError est une exception intégrée en Python qui est levée quand une instruction assert échoue.
+L’instruction assert permet de vérifier qu’une condition est vraie — si elle est fausse, Python génère une AssertionError et arrête le programme.
+
+2. Définition
+
+- Utilisé surtout pour le debugging (vérifier des hypothèses dans le code).
+- Peut être intercepté dans un bloc try … except.
+
+---
+
+Exemple simple:
+```python
+x = "hello"
+assert x == "hello"  # rien ne se passe
+assert x == "goodbye"  # AssertionError
+```
+Si la condition est fausse, une AssertionError est levée.
+
+---
+
+## Bonnes pratiques
+
+- Utiliser assert pour vérifier des hypothèses dans le code.
+- Fournir un message explicite dans l’assertion pour faciliter le debug :
+```python
+assert condition, "Message d'erreur clair"
+```
+- Ne pas utiliser assert pour gérer des erreurs normales (préférer if + raise).
+- Pour afficher proprement le message d’une AssertionError, on peut capturer l’exception :
+```python
+try:
+    assert condition, "Message d'erreur clair"
+except AssertionError as error:
+    print(error)
+```
+Cela permet de fournir un retour lisible à l’utilisateur sans planter le programme brutalement.
