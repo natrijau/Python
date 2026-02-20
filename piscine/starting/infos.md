@@ -209,3 +209,67 @@ print(f"Seconds since January 1, 1970: {seconds:,.4f} or {seconds:.2e} in scient
 ```python
 Seconds since January 1, 1970: 1,793,407,200.1234 or 1.79e+09 in scientific notation
 ```
+
+---
+
+# Exercice 03 – Null-like values
+
+## Objectif
+
+Identifier les **valeurs null-like** en Python et comprendre comment elles sont traitées.  
+Ces valeurs peuvent représenter une **absence de données**, des **valeurs vides** ou des **booléens faux**.
+
+---
+
+## Types de valeurs null-like
+
+1. `None`  
+   - Type : `NoneType`  
+   - Représente l'absence de valeur ou un objet vide
+
+2. `NaN` (Not a Number)  
+   - Type : `float`  
+   - N’est égal à rien, pas même à lui-même (`float("NaN")`)
+
+3. `0` (zéro entier)  
+   - Type : `int`
+
+4. `""` (chaîne vide)  
+   - Type : `str`
+
+5. `False` (booléen faux)  
+   - Type : `bool`
+
+---
+
+## Fonction de test `NULL_not_found`
+
+```APKpython
+def NULL_not_found(object: any) -> int:
+    if object is None:
+        print("Nothing:", object, type(object))
+        return 0
+    elif type(object) is float and object != object:
+        print("Cheese:", object, type(object))
+        return 0
+    elif type(object) is int and object == 0:
+        print("Zero:", object, type(object))
+        return 0		
+    elif object == "":
+        print("Empty:", object, type(object))
+        return 0
+    elif object is False:
+        print("Fake:", object, type(object))
+        return 0
+    print("Type not found")
+    return 1
+```
+
+---
+
+## Bonnes pratiques
+
+- None est le seul objet du type NoneType.
+- Pour détecter NaN, utiliser object != object ou math.isnan().
+- Les tests if not object: détectent implicitement 0, "", False et None.
+- Utiliser is pour comparer à None et False pour éviter les erreurs.
