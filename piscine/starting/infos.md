@@ -1,12 +1,36 @@
 # Introduction aux bases du langage de programmation Python - **Day One**
 
-# Exercice 00 : Premier script Python
+Ce module introduit les fondamentaux du langage Python à travers 9 exercices progressifs.
+Chaque exercice met en pratique des concepts essentiels : structures de données, gestion du temps, types, assertions, manipulation de chaînes, fonctions anonymes, générateurs et plus encore.
 
-Cet exercice a pour objectif de comprendre les **différences et applications** des principales structures de données en Python :
-- les listes
-- les tuples
-- les ensembles (set)
-- les dictionnaires (dict)
+
+---
+
+# Table des matières
+
+- [Exercice 00 – Structures de données](#exercice-00--Premier-script-Python)
+- [Exercice 01 – Gestion du temps](#exercice-01--gestion-du-temps)
+- [Exercice 02 – Typage dynamique](#exercice-02--typage-dynamique)
+- [Exercice 03 – Null-like values](#exercice-03--null-like-values)
+- [Exercice 04 – Arguments & Assertions](#exercice-04--arguments--assertions)
+- [Exercice 05 – Analyse de texte](#exercice-05--analyse-de-texte)
+- [Exercice 06 – Filter & Lambda](#exercice-06--filter--lambda)
+- [Exercice 07 – Morse Translator](#exercice-07--morse-translator)
+- [Exercice 08 – Barre de progression](#exercice-08--barre-de-progression)
+
+---
+
+
+# Exercice 00 - Premier script Python
+
+## 🎯 Objectif
+
+Comprendre les différences entre :
+
+- `list`
+- `tuple`
+- `set`
+- `dict`
 
 ---
 
