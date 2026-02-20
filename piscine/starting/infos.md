@@ -145,7 +145,137 @@ Les dictionnaires stockent des **paires clé-valeur**.
 
 ---
 
-# Exercice 01 – Gestion du temps
+# Exercice 01 – First function python
+
+## Objectif
+
+Créer une première fonction Python permettant de manipuler les types d’objets.
+
+Cet exercice permet de se familiariser avec :
+
+- Les types natifs Python (list, tuple, set, dict, str, int)
+- La fonction intégrée type()
+- L’affichage formaté
+- La création d’une fonction avec annotation de type
+- Le comportement d’un fichier exécuté seul
+
+---
+
+## Prototype demandé
+
+
+```python
+def all_thing_is_obj(object: any) -> int:
+    # your code here
+```
+
+- La fonction doit afficher le type de l’objet passé en paramètre.
+- Elle doit retourner 42.
+- Aucune fonction spécifique n’est imposée (Allowed functions: None).
+
+##  Comportement attendu
+
+```python
+delta = now - post_date
+seconds = delta.total_seconds()
+```
+
+- delta est un objet timedelta représentant l’intervalle de temps entre now et post_date.
+- total_seconds() retourne la durée totale en secondes.
+
+##  Formatage de date lisible
+
+Types à reconnaître
+
+La fonction doit détecter et afficher correctement :
+- list
+- tuple
+- set
+- dict
+- str
+
+Pour les chaînes de caractères (str) :
+
+Le message doit être :
+```python
+<contenu> is in the kitchen : <class 'str'>
+```
+
+Pour un type non reconnu :
+```python
+Type not found
+```
+
+
+## type() vs isinstance()
+
+
+### 1 - type()
+
+La fonction type(obj) retourne le type exact de l’objet.
+```python
+x = [1, 2, 3]
+print(type(x))
+```
+
+Sortie:
+```python
+<class 'list'>
+```
+
+Cette comparaison fonctionne uniquement si le type est exactement list.
+Elle ne prend pas en compte l’héritage.
+
+### 2 - isinstance()
+
+isinstance(obj, type) vérifie si un objet est :
+- du type donné
+- ou d’un type qui hérite de ce type
+
+```python
+x = [1, 2, 3]
+if isinstance(x, list):
+    print("C'est une liste")
+```
+
+Sortie:
+```python
+True
+```
+
+### Différence principale : l’héritage
+
+Pour : 
+```python
+class MyList(list):
+    pass
+
+obj = MyList()
+```
+
+- Avec type() :
+```python
+print(type(obj) == list) # -> <class '__main__.MyList'>
+```
+Car type(obj) est exactement MyList, pas list
+
+- Avec isinstance() :
+```python
+x = [1, 2, 3]
+print(isinstance(obj, list)) # True
+```
+Car MyList hérite de list.
+
+### Tableau récapitulatif
+
+| Fonction             | Vérifie type exact      | Gère l’héritage   | Recommandée ?     
+|----------------------|-------------------------|-------------------|--------------------|
+| type(obj) == list    | ✅ Oui                  | ❌ Non            | ❌ Non             |
+| isinstance(obj, list)| ❌ Non                  | ✅ Oui            | ✅ Oui             |
+
+---
+
+# Exercice 02 – Gestion du temps
 
 ## Objectif
 
