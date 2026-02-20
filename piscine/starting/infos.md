@@ -224,14 +224,12 @@ isinstance(obj, type) vérifie si un objet est :
 
 ```python
 x = [1, 2, 3]
-if isinstance(x, list):
+if isinstance(x, list): -# --> True
     print("C'est une liste")
 ```
+Car MyList hérite de list.
 
-Sortie:
-```python
-True
-```
+--- 
 
 ### Différence principale : l’héritage
 
