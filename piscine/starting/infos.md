@@ -8,14 +8,14 @@ Chaque exercice met en pratique des concepts essentiels : structures de données
 
 # Table des matières
 
-- [Exercice 00 – Structures de données](#exercice-00--premier-script-python)
-- [Exercice 01 – Gestion du temps](#exercice-01--gestion-du-temps)
-- [Exercice 02 – Typage dynamique](#exercice-02--typage-dynamique)
-- [Exercice 03 – Null-like values](#exercice-03--null-like-values)
-- [Exercice 04 – Arguments & Assertions](#exercice-04--arguments--assertions)
-- [Exercice 05 – Analyse de texte](#exercice-05--analyse-de-texte)
-- [Exercice 06 – Filter & Lambda](#exercice-06--filter--lambda)
-- [Exercice 07 – Morse Translator](#exercice-07--morse-translator)
+- [Exercice 00 – Structures de données](#exercice-00--structures-de-donnees)  
+- [Exercice 01 – First function Python](#exercice-01--gestion-du-temps)  
+- [Exercice 02 – Gestion du temps](#exercice-02--typage-dynamique)  
+- [Exercice 03 – Null-like values](#exercice-03--null-like-values)  
+- [Exercice 04 – Arguments & Assertions](#exercice-04--arguments--assertions)  
+- [Exercice 05 – Analyse de texte](#exercice-05--analyse-de-texte)  
+- [Exercice 06 – Filter & Lambda](#exercice-06--filter--lambda)  
+- [Exercice 07 – Morse Translator](#exercice-07--morse-translator)  
 - [Exercice 08 – Barre de progression](#exercice-08--barre-de-progression)
 
 ---
@@ -145,7 +145,7 @@ Les dictionnaires stockent des **paires clé-valeur**.
 
 ---
 
-# Exercice 01 – First function python
+# Exercice 01 – First function Python
 
 ## Objectif
 
@@ -382,7 +382,7 @@ def NULL_not_found(object: any) -> int:
 - Les tests if not object: détectent implicitement 0, "", False et None.
 - Utiliser is pour comparer à None et False pour éviter les erreurs.
 
-# Exercice 03 – Null-like values
+# Exercice 04 – Arguments & Assertions
 
 ## Objectif
 
