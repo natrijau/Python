@@ -736,6 +736,132 @@ print(addition(3, 5))  # Sortie : 8
 | **List comprehension**   | Permet de créer une liste de manière concise en filtrant ou transformant les éléments d’un iterable. |
 | **Filter**               | Fonction intégrée qui retourne les éléments d’un iterable pour lesquels une condition est vraie. |
 | **Lambda**               | Fonction anonyme définie en une seule ligne, idéale pour les expressions simples et le filtrage. |
-| **Validation des arguments** | Vérification du nombre et du type des arguments passés au programme afin d’éviter les erreurs d’exécution. |
+
+---
+
+# Exercice 07 – Objectif
+
+## Objectif
+
+Implémenter un programme utilisant un dictionnaire (dict) comme structure centrale afin de traduire une chaîne alphanumérique en code Morse.
+
+Cet exercice met l’accent sur :
+
+- L’utilisation d’un dictionnaire comme table de correspondance
+- L’accès direct aux valeurs via leurs clés
+- La séparation claire entre données (table Morse) et logique (traduction)
+
+---
+
+## Notions clés
+
+### 1. Dictionnaire comme table de correspondance
+
+Un dictionnaire permet d’associer une clé unique à une valeur.
+
+Dans cet exercice :
+- Clé → caractère alphanumérique (A-Z, 0-9, espace)
+- Valeur → représentation en Morse (.-, --.., etc.)
+
+#### Exemples :
+
+```python
+morse = {
+    "A": ".-",
+    "B": "-...",
+    " ": "/"
+}
+#Accès direct :
+morse["A"]  # ".-"
+```
+
+Autre exemple:
+
+```python
+" ".join(morse[c.upper()] for c in string)
+```
+
+Étapes :
+- Parcours de chaque caractère
+- Normalisation (majuscule)
+- Accès direct à la valeur correspondante
+- Assemblage de la chaîne finale
+
+--- 
+
+# Exercice 08 – ft_tqdm
+
+## Objectif
+
+Reproduire le comportement simplifié de la fonction tqdm en implémentant une fonction personnalisée :
+
+```python
+def ft_tqdm(lst: range) -> None:
+```
+
+Cet exercice met l’accent sur :
+
+- L’utilisation du mot-clé yield
+- La création d’un générateur
+- L’affichage dynamique dans le terminal
+- L’adaptation à la taille du terminal (os.get_terminal_size)
+
+---
+
+## Notions clés
+
+### 1. Le générateur (yield)
+
+Un générateur est une fonction qui produit des valeurs progressivement, sans stocker l’ensemble en mémoire.
+
+Contrairement à return, yield :
+- Suspend l’exécution de la fonction
+- Conserve son état interne
+- Reprend à l’instruction suivante lors de l’itération
+
+#### Exemples :
+
+```python
+def generator(n):
+    for i in range(n):
+        yield i
+```
+#### Utilisation :
+```python
+for value in generator(3):
+    print(value)
+```
+#### Pourquoi yield ?
+
+ft_tqdm doit :
+
+- Parcourir une séquence (range)
+- Afficher dynamiquement la progression
+- Continuer à fournir les éléments à la boucle appelante
+
+***Le générateur permet donc :***
+-D’afficher la barre de progression
+-De ne pas casser la boucle for
+-De reproduire le comportement natif de tqdm
+
+### 2. Adaptation au terminal
+
+L’utilisation de :
+```python
+os.get_terminal_size()
+```
+permet d’adapter dynamiquement la largeur de la barre de progression à la taille du terminal, rendant l’affichage plus robuste et professionnel.
+
+--- 
+
+## Logique globale
+
+Pour chaque élément:
 
 
+```python
+for i in lst:
+    # calcul progression
+    # affichage
+    yield i
+```
