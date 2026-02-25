@@ -1,11 +1,25 @@
 import numpy as np
 
-def slice_me(family: list, start: int, end: int) -> list:
-	print("My shape is :", np.array(family).shape)
-	x = slice(family, start, end)
-	print("My new shape is :", np.array(family).shape)
-	return [family[x]]
+# Expected output:
+#	$> python test_array2D.py
+#	My shape is : (4, 2)
+#	My new shape is : (2, 2)
+#	[[1.8, 78.4], [2.15, 102.7]]
+#	My shape is : (4, 2)
+#	My new shape is : (1, 2)
+#	[[2.15, 102.7]]
+#	$>
 
+def slice_me(family: list, start: int, end: int) -> list:
+	assert isinstance(family, list), "Need list arg"
+	assert isinstance(start, int), "Need int arg"
+	assert end is not None, "need good end arg"
+	assert start is not None , "need good start arg"
+	print("My shape is :", np.array(family).shape)
+	x = slice(start, end)
+	tmp = family[x]
+	print("My new shape is :", np.array(tmp).shape)
+	return [family[x]]
 
 
 #slice(start, end, step)
@@ -39,12 +53,3 @@ def slice_me(family: list, start: int, end: int) -> list:
 #	print(slice_me(family, 1, -2))
 #
 # 
-# Expected output:
-#	$> python test_array2D.py
-#	My shape is : (4, 2)
-#	My new shape is : (2, 2)
-#	[[1.8, 78.4], [2.15, 102.7]]
-#	My shape is : (4, 2)
-#	My new shape is : (1, 2)
-#	[[2.15, 102.7]]
-#	$>
