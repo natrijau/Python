@@ -3,7 +3,6 @@
 Ce module introduit les fondamentaux du langage Python à travers 9 exercices progressifs.
 Chaque exercice met en pratique des concepts essentiels : structures de données, gestion du temps, types, assertions, manipulation de chaînes, fonctions anonymes, générateurs et plus encore.
 
-
 ---
 
 # Table des matières
